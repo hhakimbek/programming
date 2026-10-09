@@ -48,12 +48,27 @@ def marshrutni_oqi(marshrutSatr:str):
     for i in marshrutList:
         MARSHRUT.append({"tuman": i[0], "masofa": int(i[1]), "yuk": int(i[2])})
     return MARSHRUT
-
+#Chilonzor:5:2;Yunusobod:8:1;Chilonzor:6:3;Sergeli:5:1
 def jadval_qatorlari(marshrut:list):
     print("Tuman         Masofa   Yuk")
     print("--------------------------")
     for i in marshrut:
         print(f"{i['tuman']}       {i['masofa']}   {i['yuk']}")
+    print()
+
+def fileni_oqi(fileName):
+    try:
+        with open(fileName, "r", encoding="utf-8") as file:
+            lines = file.readlines()
+            if(not lines):
+                return ""
+            return lines
+    except FileNotFoundError:
+        return '404'
+
+def cleanLines(lines):
+    withOutN = [line.strip() for line in lines ]
+    return ';'.join(withOutN)
 
 def main():
 
@@ -64,9 +79,19 @@ def main():
     batteryCharge=100
 
     windSpeed = int(input("Shamol tezligi (ms): "))
-    marshrutSatr = input("Marshrut: ")
+    fileName = "lesson_1/marshrut.txt"
+    lines = fileni_oqi(fileName=fileName)
+    if(not lines):
+        print("Fayl bo'sh")
+        return 
+    elif(lines=='404'):
+        print(f"Xato: {fileName} topilmadi.")
+        return
+
+    marshrutSatr = cleanLines(lines=lines)
     MARSHRUT = marshrutni_oqi(marshrutSatr=marshrutSatr)
     jadval_qatorlari(marshrut=MARSHRUT)
+
     if(not parvoz_mumkinmi(windSpeed=windSpeed)):
         print("Taqiqlangan shamol sabab uchilmaydi")
         return

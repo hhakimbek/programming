@@ -1,0 +1,4 @@
+Chilonzor:5:2
+Yunusobod:8:1
+Chilonzor:6:3
+Sergeli:5:1
