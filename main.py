@@ -39,7 +39,6 @@ Sum: {sumDistance}
 Average: {averageDistance:.1f}
 '''
 
-
 def main():
 
     routes = []
