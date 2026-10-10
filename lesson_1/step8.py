@@ -79,7 +79,7 @@ def main():
     batteryCharge=100
 
     windSpeed = int(input("Shamol tezligi (ms): "))
-    fileName = "lesson_1/marshrut.txt"
+    fileName = "assets/marshrut.txt"
     lines = fileni_oqi(fileName=fileName)
     if(not lines):
         print("Fayl bo'sh")
