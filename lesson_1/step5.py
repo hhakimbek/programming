@@ -54,7 +54,6 @@ def main():
             break
 
         distance = int(distance)
-        
         windSpeed = int(input("Shamol tezligi (ms): "))
 
         if(not parvoz_mumkinmi(windSpeed=windSpeed)):
